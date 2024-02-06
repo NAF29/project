@@ -2,6 +2,8 @@ package postMethod;
 
 import java.util.HashMap;
 
+import javax.mail.Message;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -37,6 +39,7 @@ public class PostMethod {
 		Assert.assertEquals(response.statusCode(),200);
 		System.out.println(response.statusLine());
 		System.out.println("body message" + response.asPrettyString());
+		
 		
 		
 		

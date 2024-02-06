@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-06T15:56:16 IST" name="Default suite" finished-at="2024-02-06T15:56:17 IST" duration-ms="1319">
+  <suite started-at="2024-02-06T17:57:41 IST" name="Default suite" finished-at="2024-02-06T17:57:43 IST" duration-ms="2079">
     <groups>
     </groups>
-    <test started-at="2024-02-06T15:56:16 IST" name="Default test" finished-at="2024-02-06T15:56:17 IST" duration-ms="1319">
-      <class name="postMethod.PostMethod">
-        <test-method signature="post()[pri:0, instance:postMethod.PostMethod@1e683a3e]" started-at="2024-02-06T15:56:16 IST" name="post" finished-at="2024-02-06T15:56:17 IST" duration-ms="1293" status="PASS">
+    <test started-at="2024-02-06T17:57:41 IST" name="Default test" finished-at="2024-02-06T17:57:43 IST" duration-ms="2079">
+      <class name="testValidation.AllTypevalidation">
+        <test-method signature="validate()[pri:0, instance:testValidation.AllTypevalidation@1e683a3e]" started-at="2024-02-06T17:57:41 IST" name="validate" finished-at="2024-02-06T17:57:43 IST" duration-ms="2052" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- post -->
-      </class> <!-- postMethod.PostMethod -->
+        </test-method> <!-- validate -->
+      </class> <!-- testValidation.AllTypevalidation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
