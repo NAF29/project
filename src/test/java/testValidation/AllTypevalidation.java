@@ -1,5 +1,10 @@
 package testValidation;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.crypto.Data;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -29,10 +34,17 @@ public class AllTypevalidation {
 		
 		String email = response.jsonPath().getString("data[0].email");
         System.out.println("The email is: " + email);
+       
+        List<String> emailIds = response.jsonPath().getList("data.email");
+
+        // Calculate the count of email IDs
+        int emailIdCount = emailIds.size();
+
+        // Print the count of email IDs
+        System.out.println("Count of email IDs: " + emailIdCount);
+    }
         
-        
-		
-		
+
 	}
 				
-}
+

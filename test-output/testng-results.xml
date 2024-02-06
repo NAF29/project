@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-06T17:57:41 IST" name="Default suite" finished-at="2024-02-06T17:57:43 IST" duration-ms="2079">
+  <suite started-at="2024-02-06T18:39:36 IST" name="Default suite" finished-at="2024-02-06T18:39:39 IST" duration-ms="2495">
     <groups>
     </groups>
-    <test started-at="2024-02-06T17:57:41 IST" name="Default test" finished-at="2024-02-06T17:57:43 IST" duration-ms="2079">
+    <test started-at="2024-02-06T18:39:36 IST" name="Default test" finished-at="2024-02-06T18:39:39 IST" duration-ms="2495">
       <class name="testValidation.AllTypevalidation">
-        <test-method signature="validate()[pri:0, instance:testValidation.AllTypevalidation@1e683a3e]" started-at="2024-02-06T17:57:41 IST" name="validate" finished-at="2024-02-06T17:57:43 IST" duration-ms="2052" status="PASS">
+        <test-method signature="validate()[pri:0, instance:testValidation.AllTypevalidation@1e683a3e]" started-at="2024-02-06T18:39:36 IST" name="validate" finished-at="2024-02-06T18:39:39 IST" duration-ms="2465" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validate -->
