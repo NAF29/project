@@ -23,6 +23,7 @@ public class GetMethod {
 		Response response= requestSpecification.get(endPoint);
 		System.out.println(response.getBody());
 		Assert.assertEquals(response.getStatusCode(),200);
+		response.getStatusLine();
 		
 	}
 
