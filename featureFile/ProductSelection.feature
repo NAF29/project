@@ -4,16 +4,18 @@ Feature: Product Selection on Flipkart
   I want to be able to select products from Flipkart
   So that I can view details and make a purchase
 
-  Scenario: Selecting a product from search results
+  Background: 
     Given user launch chrome browser
-    When when user open url "https://www.flipkart.com/"
+    And when user open url "https://www.flipkart.com/"
+ 
+
+  @regression
+  Scenario: Selecting a product from search results
     When I search for "Iphone 12"
     And I select the first result from the search results
     Then I should be taken to the product details page
-
-  Scenario: Viewing product details
-    Given I am on the product details page of a selected mobile phone
-    When I click on the product name or image
+    When I am on the product details page of a selected mobile phone
+    And I click on the product name or image
     Then I should be able to view detailed information about the product
 
   Scenario: Filtering products

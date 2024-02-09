@@ -1,8 +1,18 @@
 package stepDefinition;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.maven.shared.utils.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.SearchPage;
@@ -11,59 +21,58 @@ public class StepDefn {
 
 	public WebDriver driver;
 
-	SearchPage searchPage;
+	public SearchPage searchPage;
+
+	@Before
+	public void setup() {
+		System.out.println("Setup method executed");
+		WebDriverManager.chromedriver().setup();
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--remote-allow-origins=*");
+		driver = new ChromeDriver(opt);
+	}
 
 	@Given("user launch chrome browser")
 	public void user_launch_chrome_browser() {
-		// WebDriverManager.chromedriver().setup();
-		// driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver", "/Users/nafis/Downloads/chromedriver");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver(options);
-		
+		System.out.println("browser opened");
+		searchPage = new SearchPage(driver);
 
 	}
 
-	@Given("when user open url {string}")
+	@And("when user open url {string}")
 	public void when_user_open_url(String url) {
 		driver.get(url);
 	}
 
 	@When("I search for {string}")
-	public void i_search_for(String string) {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void i_search_for(String iteam) {
+		searchPage.searchiteam(iteam);
 	}
 
 	@When("I select the first result from the search results")
 	public void i_select_the_first_result_from_the_search_results() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		searchPage.selectedFirstIteam();
 	}
 
 	@Then("I should be taken to the product details page")
 	public void i_should_be_taken_to_the_product_details_page() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		System.out.println("User landed on product page");
 	}
 
-	@Given("I am on the product details page of a selected mobile phone")
+	@When("I am on the product details page of a selected mobile phone")
 	public void i_am_on_the_product_details_page_of_a_selected_mobile_phone() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		System.out.println("The product deatils page title is :" + driver.getTitle());
+
 	}
 
 	@When("I click on the product name or image")
 	public void i_click_on_the_product_name_or_image() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		searchPage.pageDetails();
 	}
 
 	@Then("I should be able to view detailed information about the product")
-	public void i_should_be_able_to_view_detailed_information_about_the_product() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+	public void i_should_be_able_to_view_detailed_information_about_the_product() throws InterruptedException {
+		searchPage.verifyProductDeatails();
 	}
 
 	@Given("I have searched for {string}")
@@ -132,4 +141,17 @@ public class StepDefn {
 		throw new io.cucumber.java.PendingException();
 	}
 
+	@After
+	public void tearDown(Scenario sc) {
+		if (sc.isFailed() == true) {
+			try {
+				File screenShotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+				FileUtils.copyFile(screenShotFile, new File("/Users/nafis/eclipse/EcommerceSites/screenshot/test.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			driver.close();
+		}
+	}
 }

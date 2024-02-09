@@ -11,11 +11,13 @@ import io.cucumber.junit.CucumberOptions;
 		glue = "stepDefinition",
 		dryRun = false,
 		monochrome = true,
+		tags = "@regression",
 		plugin = {"pretty","html:target/cucumber-reports/reports1.html"}
 		
 		)
 
 public class Runners {
 
+	
 	
 }
