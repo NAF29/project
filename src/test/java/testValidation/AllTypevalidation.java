@@ -1,11 +1,6 @@
 package testValidation;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.xml.crypto.Data;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -18,13 +13,13 @@ public class AllTypevalidation {
 	public void validate() {
 		
 		RestAssured.baseURI="https://reqres.in/";
-		String basePath="api/users?page=2";
+		RestAssured.basePath="api/users?page=2";
 		
 		RequestSpecification requestSpecification=RestAssured.given();
 		
 		requestSpecification.headers("Content-Type","application/json");
 		
-		Response response =requestSpecification.get(basePath);
+		Response response =requestSpecification.get();
 		
 		System.out.println(response.getBody());
 		System.out.println(response.getStatusLine());
@@ -42,6 +37,12 @@ public class AllTypevalidation {
 
         // Print the count of email IDs
         System.out.println("Count of email IDs: " + emailIdCount);
+        
+        List<String> avatList=response.jsonPath().getList("data.avatar");
+        int avatSize=avatList.size();
+        System.out.println("count of avatar:" + avatSize);
+        
+        
     }
         
 

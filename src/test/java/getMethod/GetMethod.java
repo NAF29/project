@@ -1,6 +1,7 @@
 package getMethod;
 
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -8,7 +9,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class GetMethod {
 	
-	@org.testng.annotations.Test
+	@Test
 	public void get() {
 		
 		RestAssured.baseURI="https://conappdevapi.badabusiness.co.in/";

@@ -32,7 +32,7 @@ public class PostMethod {
 		head.put("client-key","823BBD");
 		
 		requestSpecification.headers(head);
-		requestSpecification.headers(payload);
+		requestSpecification.body(payload);
 		
 		Response response=requestSpecification.post();
 		System.out.println(response.getBody());
